@@ -1,0 +1,3 @@
+JParFor (Java Parallel For) Library (http://jparfor.org/).
+Copyright 2012-2016 JParFor Team.
+Distributed under Apache License 2.0.
