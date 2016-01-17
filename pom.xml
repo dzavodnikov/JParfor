@@ -51,6 +51,16 @@
         </dependency>
     </dependencies>
 
+    <!--
+        Build:
+            $ mvn clean install
+        
+        Build JavaDocs:
+            $ mvn clean site
+        
+        Publish to Maven repo:
+            $ mvn clean deploy
+    -->
     <build>
         <plugins>
             <plugin>
@@ -61,24 +71,24 @@
                 </configuration>
             </plugin>
             <!--
-	            See:
-	                https://maven.apache.org/plugin-developers/cookbook/attach-source-javadoc-artifacts.html
+                See:
+                    https://maven.apache.org/plugin-developers/cookbook/attach-source-javadoc-artifacts.html
             -->
             <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-source-plugin</artifactId>
-		        <executions>
-		            <execution>
-		                <id>attach-sources</id>
-		                <goals>
-		                    <goal>jar</goal>
-		                </goals>
-		            </execution>
-		        </executions>
-		    </plugin>
-		    <!--
-	            See:
-	                https://maven.apache.org/plugin-developers/cookbook/attach-source-javadoc-artifacts.html
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--
+                See:
+                    https://maven.apache.org/plugin-developers/cookbook/attach-source-javadoc-artifacts.html
             -->
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -96,6 +106,29 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--
+                See:
+                    https://github.com/github/maven-plugins/
+            -->
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>JavaDocs for ${project.version}.</message>
+                    <noJekyll>true</noJekyll>
+                    <repositoryOwner>${repository.owner}</repositoryOwner>
+                    <repositoryName>${repository.name}</repositoryName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
                     </execution>
                 </executions>
             </plugin>
