@@ -55,10 +55,10 @@
         Build:
             $ mvn clean install
         
-        Build JavaDocs:
+        Commit JavaDocs to the repo:
             $ mvn clean site
         
-        Publish to Maven repo:
+        Commit Maven artifacts to the repo:
             $ mvn clean deploy
     -->
     <build>
@@ -133,12 +133,9 @@
                 </executions>
             </plugin>
             <!--
-            <plugin>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
-                </configuration>
-            </plugin>
+                See:
+                    https://github.com/github/maven-plugins/
+            -->
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
@@ -163,7 +160,12 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
