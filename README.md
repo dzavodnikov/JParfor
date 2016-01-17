@@ -5,7 +5,7 @@ Multithreading implementation parallel "for" operator in Java.
 
 Requirements
 ------------
- * Java 1.8 or newer.
+ * Java 1.7 or newer.
 
 
 Documentation
