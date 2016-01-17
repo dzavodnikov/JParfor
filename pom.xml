@@ -60,6 +60,26 @@
                    <target>${java.version}</target>
                 </configuration>
             </plugin>
+            <!--
+	            See:
+	                https://maven.apache.org/plugin-developers/cookbook/attach-source-javadoc-artifacts.html
+            -->
+            <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-source-plugin</artifactId>
+		        <executions>
+		            <execution>
+		                <id>attach-sources</id>
+		                <goals>
+		                    <goal>jar</goal>
+		                </goals>
+		            </execution>
+		        </executions>
+		    </plugin>
+		    <!--
+	            See:
+	                https://maven.apache.org/plugin-developers/cookbook/attach-source-javadoc-artifacts.html
+            -->
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
@@ -79,6 +99,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <configuration>
@@ -109,6 +130,7 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>
