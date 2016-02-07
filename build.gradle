@@ -1,0 +1,47 @@
+/*
+ * JParFor (Java Parallel For).
+ */
+apply plugin: 'java'
+
+compileJava {
+    sourceCompatibility = '1.8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+/*
+ * See:
+ *      http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
+ *      https://stackoverflow.com/questions/22528767/
+ */
+if (JavaVersion.current().isJava8Compatible()) {
+    tasks.withType(Javadoc) {
+        // Disable the crazy super-strict doclint tool in Java 8.
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
+/*
+ * See:
+ *      https://stackoverflow.com/questions/11474729/
+ */
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
