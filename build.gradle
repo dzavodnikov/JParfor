@@ -2,15 +2,14 @@
  * JParFor (Java Parallel For).
  */
 apply plugin: 'java'
-apply plugin: 'eclipse'
 
-group = 'org.jparfor'
-version = '1.1.29'
-sourceCompatibility = '1.8'
-
-compileJava {
-    sourceCompatibility = '1.8'
-}
+/*
+ * See:
+ *      https://stackoverflow.com/questions/17262856/
+ */
+group = theGroup
+version = theVersion
+sourceCompatibility = theSourceCompatibility
 
 repositories {
     mavenCentral()
