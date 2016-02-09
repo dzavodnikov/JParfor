@@ -2,6 +2,7 @@
  * JParFor (Java Parallel For).
  */
 apply plugin: 'java'
+apply plugin: 'eclipse'
 
 /*
  * See:
