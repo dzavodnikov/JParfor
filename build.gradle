@@ -1,7 +1,16 @@
 /*
- * JParFor (Java Parallel For).
+ * Java Parallel For (JParFor).
+ */
+/*
+ * See:
+ *      https://docs.gradle.org/current/userguide/java_plugin.html
  */
 apply plugin: 'java'
+
+/*
+ * See:
+ *      https://docs.gradle.org/current/userguide/eclipse_plugin.html
+ */
 apply plugin: 'eclipse'
 
 /*
