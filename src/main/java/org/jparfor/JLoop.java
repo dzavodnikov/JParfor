@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /*
- * This class is part of Java Parallel For (JParFor).
+ * This file is part of Java Parallel For (JParFor).
  */
 package org.jparfor;
 

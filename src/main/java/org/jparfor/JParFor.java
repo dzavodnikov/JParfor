@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /*
- * This class is part of Java Parallel For (JParFor).
+ * This file is part of Java Parallel For (JParFor).
  */
 package org.jparfor;
 
@@ -36,17 +36,17 @@ public class JParFor {
     /**
      * Minimum iterations into one worker.
      */
-    private static int      minIterationsPerWorker = MIN_ITERATIONS_DEFAULT;
+    private static int minIterationsPerWorker = MIN_ITERATIONS_DEFAULT;
 
     /**
      * Minimal sizes of images when create many threads no needed.
      */
-    public static final int DEFAULT_MAX_THREADS    = Runtime.getRuntime().availableProcessors();
+    public static final int DEFAULT_MAX_THREADS = Runtime.getRuntime().availableProcessors();
 
     /**
      * Number of workers that will be used.
      */
-    private static int      maxWorkers             = DEFAULT_MAX_THREADS;
+    private static int maxWorkers = DEFAULT_MAX_THREADS;
 
     /**
      * @return minimum iterations into one worker.
@@ -153,16 +153,16 @@ public class JParFor {
          * Calculate running parameters.
          */
         // Number of real iterations.
-        final int totalIter = (int) Math.ceil((double) (end - begin) / (double) step); // Rounded up.
+        final int totalIter = (int) Math.ceil((double) (end - begin) / (double) step);// Rounded up.
 
         // Number iterations for each worker.
-        int bitIter = (int) Math.ceil((double) totalIter / (double) JParFor.getMaxWorkers()); // Round up.
+        int bitIter = (int) Math.ceil((double) totalIter / (double) JParFor.getMaxWorkers());// Round up.
         if (bitIter <= JParFor.getMinIterations()) {
             bitIter = JParFor.getMinIterations();
         }
 
         // Number of workers that we need.
-        final int workers = (int) Math.ceil((double) totalIter / (double) bitIter); // Round up.
+        final int workers = (int) Math.ceil((double) totalIter / (double) bitIter);// Round up.
 
         /*
          * Split tasks.
@@ -181,7 +181,7 @@ public class JParFor {
             final List<Thread> threadList = new LinkedList<Thread>();
 
             // Split iterations to all available workers.
-            final int bitIterAbs = bitIter * step; // We can have 'step' value more than 1!
+            final int bitIterAbs = bitIter * step;// We can have 'step' value more than 1!
             for (int i = 0; i < workers; ++i) {
                 final int startPos = begin + i * bitIterAbs;
                 int temp = startPos + bitIterAbs;
