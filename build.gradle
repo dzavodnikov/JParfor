@@ -17,10 +17,10 @@
  * This file is part of Java Parallel For (JParFor) Library.
  */
 plugins {
-    id 'org.ajoberstar.grgit' version '1.4.2'
-    id 'org.ajoberstar.github-pages' version '1.4.2'
+    id 'org.ajoberstar.grgit'           version '1.4.2'
+    id 'org.ajoberstar.github-pages'    version '1.4.2'
     //id 'org.ajoberstar.release-opinion' version '1.4.2'
-    //id 'org.ajoberstar.release-base' version '1.4.2'
+    //id 'org.ajoberstar.release-base'    version '1.4.2'
 }
 
 /*
@@ -47,8 +47,8 @@ apply plugin: 'org.ajoberstar.github-pages'
  * See:
  *      https://stackoverflow.com/questions/17262856/
  */
-group = theGroup
-version = theVersion
+group               = theGroup
+version             = theVersion
 sourceCompatibility = theSourceCompatibility
 
 repositories {
