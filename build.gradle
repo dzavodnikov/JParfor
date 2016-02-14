@@ -1,19 +1,32 @@
-/*
+/**
  * Java Parallel For (JParFor).
  */
-/*
+plugins {
+    id 'org.ajoberstar.grgit' version '1.4.2'
+    id 'org.ajoberstar.github-pages' version '1.4.2'
+    //id 'org.ajoberstar.release-opinion' version '1.4.2'
+    //id 'org.ajoberstar.release-base' version '1.4.2'
+}
+
+/**
  * See:
  *      https://docs.gradle.org/current/userguide/java_plugin.html
  */
 apply plugin: 'java'
 
-/*
+/**
  * See:
  *      https://docs.gradle.org/current/userguide/eclipse_plugin.html
  */
 apply plugin: 'eclipse'
 
-/*
+/**
+ * See:
+ *      https://github.com/ajoberstar/gradle-git/
+ */
+apply plugin: 'org.ajoberstar.github-pages'
+
+/**
  * See:
  *      https://stackoverflow.com/questions/17262856/
  */
@@ -29,7 +42,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-/*
+/**
  * See:
  *      http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
  *      https://stackoverflow.com/questions/22528767/
@@ -41,7 +54,18 @@ if (JavaVersion.current().isJava8Compatible()) {
     }
 }
 
-/*
+/**
+ * See:
+ *      https://github.com/ajoberstar/gradle-git/wiki/org.ajoberstar.github-pages/
+ */
+githubPages {
+    repoUri = 'https://github.com/dzavodnikov/JParFor/'
+    pages {
+        from javadoc
+    }
+}
+
+/**
  * See:
  *      https://stackoverflow.com/questions/11474729/
  */
