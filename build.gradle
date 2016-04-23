@@ -1,10 +1,21 @@
 // See:
+//      https://docs.gradle.org/current/userguide/plugins.html
+//      https://plugins.gradle.org/
+plugins {
+    id 'org.ajoberstar.github-pages' version '1.4.2'
+}
+
+// See:
 //      https://docs.gradle.org/current/userguide/java_plugin.html
 apply plugin: 'java'
 
 // See:
 //      https://docs.gradle.org/current/userguide/eclipse_plugin.html
 apply plugin: 'eclipse'
+
+// See:
+//      https://github.com/ajoberstar/gradle-git/wiki/org.ajoberstar.github-pages/
+apply plugin: 'org.ajoberstar.github-pages'
 
 // See:
 //      https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
@@ -28,4 +39,11 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives sourcesJar
     archives javadocJar
+}
+
+githubPages {
+    repoUri = 'https://github.com/dzavodnikov/JParFor/'
+    pages {
+        from javadoc
+    }
 }
