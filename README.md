@@ -22,7 +22,9 @@ Install
 -------
 
 ### Ivy
-Add an *ivysettings.xml*:
+
+Add this code to *ivysettings.xml*:
+
     ...
     <ivysettings>
         <settings defaultResolver="chain" />
@@ -35,14 +37,16 @@ Add an *ivysettings.xml*:
     </ivysettings>
     ...
 
-Add an *ivy.xml*:
+Add this code to *ivy.xml*:
+
     ...
     <dependencies>
         <dependency org="org.jparfor" name="jparfor" rev="1.1.29" />
     </dependencies>
     ...
 
-Add an *build.xml*:
+Add this code to *build.xml*:
+
     ...
     <target name="resolve" description="Retrieve dependencies with Ivy">
         <ivy:retrieve />
@@ -50,6 +54,9 @@ Add an *build.xml*:
     ...
 
 ### Maven
+
+Add this code to *pom.xml*:
+
     ...
     <repositories>
         ...
@@ -72,6 +79,9 @@ Add an *build.xml*:
     ...
 
 ### Gradle
+
+Add this code to *build.gradle*:
+
     ...
     repositories {
         ...
