@@ -30,8 +30,9 @@ Add this code to *ivysettings.xml*:
         <settings defaultResolver="chain" />
         <resolvers>
             <chain name="chain">
-                <ibiblio name="central" m2compatible="true" />
-                <ibiblio name="JParFor" m2compatible="true" root="https://raw.github.com/dzavodnikov/JParFor/mvn-repo/" />
+                <ibiblio    name="central" m2compatible="true" />
+                <ibiblio    name="JParFor" m2compatible="true" 
+                            root="https://raw.github.com/dzavodnikov/JParFor/mvn-repo/" />
             </chain>
         </resolvers>
     </ivysettings>
