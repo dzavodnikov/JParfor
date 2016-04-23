@@ -1,105 +1,30 @@
-/*
- * Copyright (c) 2012-2016 JParFor Team
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*
- * This file is part of Java Parallel For (JParFor).
- */
-plugins {
-    id 'org.ajoberstar.grgit'           version '1.4.2'
-    id 'org.ajoberstar.github-pages'    version '1.4.2'
-    //id 'org.ajoberstar.release-opinion' version '1.4.2'
-    //id 'org.ajoberstar.release-base'    version '1.4.2'
-}
-
-/*
- * See:
- *      https://docs.gradle.org/current/userguide/java_plugin.html
- */
+// See:
+//      https://docs.gradle.org/current/userguide/java_plugin.html
 apply plugin: 'java'
 
-/*
- * See:
- *      https://docs.gradle.org/current/userguide/eclipse_plugin.html
- */
+// See:
+//      https://docs.gradle.org/current/userguide/eclipse_plugin.html
 apply plugin: 'eclipse'
 
-/*
- * See:
- *      https://github.com/ajoberstar/gradle-git/
- */
-apply plugin: 'org.ajoberstar.github-pages'
-
-/*
- * Common project configuration.
- *
- * See:
- *      https://stackoverflow.com/questions/17262856/
- */
-group               = theGroup
-version             = theVersion
-sourceCompatibility = theSourceCompatibility
-
+// See:
+//      https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
 repositories {
     mavenCentral()
 }
-
 dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-/*
- * JavaDocs configuration.
- * 
- * See:
- *      http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
- *      https://stackoverflow.com/questions/22528767/
- */
-if (JavaVersion.current().isJava8Compatible()) {
-    tasks.withType(Javadoc) {
-        // Disable the crazy super-strict doclint tool in Java 8.
-        options.addStringOption('Xdoclint:none', '-quiet')
-    }
-}
-
-/*
- * JavaDocs GigHub publishing configuration.
- * 
- * See:
- *      https://github.com/ajoberstar/gradle-git/wiki/org.ajoberstar.github-pages/
- */
-githubPages {
-    repoUri = 'https://github.com/dzavodnikov/JParFor/'
-    pages {
-        from javadoc
-    }
-}
-
-/*
- * See:
- *      https://stackoverflow.com/questions/11474729/
- */
+// See:
+//      https://stackoverflow.com/questions/11474729/
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
-
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
-
 artifacts {
     archives sourcesJar
     archives javadocJar
