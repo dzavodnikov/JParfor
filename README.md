@@ -23,7 +23,7 @@ Install
 
 ### Ivy
 
-Add this code to *ivysettings.xml*:
+Add this code to **ivysettings.xml**:
 
     ...
     <ivysettings>
@@ -38,7 +38,7 @@ Add this code to *ivysettings.xml*:
     </ivysettings>
     ...
 
-Add this code to *ivy.xml*:
+Add this code to **ivy.xml**:
 
     ...
     <dependencies>
@@ -54,9 +54,10 @@ Add this code to *build.xml*:
     </target>
     ...
 
+
 ### Maven
 
-Add this code to *pom.xml*:
+Add this code to **pom.xml**:
 
     ...
     <repositories>
@@ -79,9 +80,10 @@ Add this code to *pom.xml*:
     </dependency>
     ...
 
+
 ### Gradle
 
-Add this code to *build.gradle*:
+Add this code to **build.gradle**:
 
     ...
     repositories {
