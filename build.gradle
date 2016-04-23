@@ -1,10 +1,10 @@
 // See:
 //      https://docs.gradle.org/current/userguide/java_plugin.html
-apply plugin: 'java'
+apply plugin: "java"
 
 // See:
 //      https://docs.gradle.org/current/userguide/eclipse_plugin.html
-apply plugin: 'eclipse'
+apply plugin: "eclipse"
 
 // See:
 //      https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
@@ -12,17 +12,17 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testCompile "junit:junit:4.12"
 }
 
 // See:
 //      https://stackoverflow.com/questions/11474729/
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
+    classifier = "sources"
     from sourceSets.main.allSource
 }
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
+    classifier = "javadoc"
     from javadoc.destinationDir
 }
 artifacts {
