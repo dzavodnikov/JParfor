@@ -45,3 +45,13 @@ uploadArchives {
         repository(url: 'file://$buildDir/mvn-repo/')
     }
 }
+
+task publishJavaDocs(dependsOn: javadoc) {
+    // TODO
+    println 'publishJavaDocs'
+}
+
+task publishMavenArtifacts(dependsOn: uploadArchives) {
+    // TODO
+    println 'publishMavenArtifacts'
+}
