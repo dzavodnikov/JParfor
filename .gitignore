@@ -4,10 +4,6 @@
 # Java crashes
 hs_err_pid*
 
-# Gradle
-build/
-.gradle/
-
 # Eclipse Core
 .project
 .settings/
@@ -16,6 +12,6 @@ build/
 .classpath
 bin/
 
-# NetBeans Gradle
-.nb-gradle/
+# Maven
+target/
 

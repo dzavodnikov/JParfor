@@ -16,11 +16,6 @@
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
-    
-    <scm>
-        <connection>scm:git:https://github.com/dzavodnikov/JParFor/</connection>
-      <tag>jparfor-1.1.x</tag>
-  </scm>
 
     <developers>
         <developer>
@@ -147,6 +142,12 @@
                     <goals>deploy</goals>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo/</altDeploymentRepository>
+                </configuration>
+            </plugin>
             <!--
                 See:
                     https://github.com/github/maven-plugins/
@@ -175,12 +176,6 @@
                         <phase>deploy</phase>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo/</altDeploymentRepository>
-                </configuration>
             </plugin>
             -->
         </plugins>
