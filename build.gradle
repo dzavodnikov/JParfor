@@ -1,0 +1,25 @@
+// See:
+//      https://docs.gradle.org/current/userguide/plugins.html
+//      https://plugins.gradle.org/
+plugins {
+}
+
+// See:
+//      https://docs.gradle.org/current/userguide/java_plugin.html
+apply plugin: "java"
+
+// See:
+//      https://docs.gradle.org/current/userguide/eclipse_plugin.html
+apply plugin: "eclipse"
+
+// See:
+//      https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
+repositories {
+    mavenCentral()                      // Main Maven repository.
+    //jcenter()                           // For Android libraries.
+    maven { url "https://jitpack.io/" } // JitPack repository.
+}
+dependencies {
+    compile "com.github.dzavodnikov:JParFor:1.1.29"
+    testCompile "junit:junit:4.12"
+}

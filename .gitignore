@@ -1,0 +1,18 @@
+# Java binary-files
+*.class
+
+# Java crashes
+hs_err_pid*
+
+# Eclipse Core
+.project
+.settings/
+
+# Eclipse JDT (Java Development Tools)
+.classpath
+bin/
+
+# Gradle
+.gradle
+build/
+
