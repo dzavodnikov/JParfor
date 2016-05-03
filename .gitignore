@@ -12,6 +12,7 @@ hs_err_pid*
 .classpath
 bin/
 
-# Maven
-target/
+# Gradle
+.gradle
+build/
 

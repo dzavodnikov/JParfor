@@ -2,6 +2,7 @@
 //      https://docs.gradle.org/current/userguide/plugins.html
 //      https://plugins.gradle.org/
 plugins {
+    id "org.ajoberstar.github-pages" version "1.4.2"
 }
 
 // See:
@@ -17,8 +18,15 @@ apply plugin: "eclipse"
 repositories {
     mavenCentral() // Main Maven repository.
     //jcenter() // For Android libraries.
-    maven { url "https://jitpack.io" } // JitPack repository.
+    //maven { url "https://jitpack.io" } // JitPack repository.
 }
 dependencies {
     testCompile "junit:junit:4.12"
+}
+
+githubPages {
+    repoUri = "https://github.com/dzavodnikov/JParFor/"
+    pages {
+        from javadoc
+    }
 }
