@@ -14,6 +14,13 @@ apply plugin: 'java'
 // See:
 //      https://docs.gradle.org/current/userguide/eclipse_plugin.html
 apply plugin: 'eclipse'
+// See:
+//      https://stackoverflow.com/questions/10156847/
+eclipse {
+    classpath {
+       downloadSources = true
+    }
+}
 
 // See:
 //      https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
