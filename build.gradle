@@ -10,24 +10,25 @@ plugins {
 // See:
 //      https://docs.gradle.org/current/userguide/java_plugin.html
 apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 // See:
 //      https://docs.gradle.org/current/userguide/eclipse_plugin.html
 apply plugin: 'eclipse'
-// See:
-//      https://stackoverflow.com/questions/10156847/
-eclipse {
-    classpath {
-       downloadSources = true
-    }
+eclipse.classpath {
+    // See:
+    //      https://stackoverflow.com/questions/10156847/
+    downloadSources = true
+    downloadJavadoc = true
 }
 
 // See:
 //      https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
 repositories {
-    mavenCentral()                      // Main Maven repository.
-    //jcenter()                           // For Android libraries.
-    //maven { url 'https://jitpack.io/' } // JitPack repository.
+    mavenCentral()
+    jcenter()
+    maven { url 'https://jitpack.io/' }
 }
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
