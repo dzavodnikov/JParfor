@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,17 +36,17 @@ public class JParFor {
     /**
      * Minimum iterations into one worker.
      */
-    private static int minIterationsPerWorker = MIN_ITERATIONS_DEFAULT;
+    private static int      minIterationsPerWorker = MIN_ITERATIONS_DEFAULT;
 
     /**
      * Minimal sizes of images when create many threads no needed.
      */
-    public static final int DEFAULT_MAX_THREADS = Runtime.getRuntime().availableProcessors();
+    public static final int DEFAULT_MAX_THREADS    = Runtime.getRuntime().availableProcessors();
 
     /**
      * Number of workers that will be used.
      */
-    private static int maxWorkers = DEFAULT_MAX_THREADS;
+    private static int      maxWorkers             = DEFAULT_MAX_THREADS;
 
     /**
      * @return minimum iterations into one worker.
@@ -94,21 +94,15 @@ public class JParFor {
 
     /**
      * Run single loop into many threads.
-     *
      * <p>
-     * Same as:
-     *
-     * <code><pre>
+     * Same as: <code><pre>
      * for (int i = begin; i < end; i += step) {
      *      runner.exec(i, 0); // Do something...
      * }
      * </pre></code>
      * </p>
-     *
      * <p>
-     * To save results of the threads use following pattern:
-     *
-     * <code><pre>
+     * To save results of the threads use following pattern: <code><pre>
      * final double[] results = new double[JParfor.getMaxWorkers()];
      * JParfor.exec(begin, end, step, new Runner() {
      *      {@literal @}Override
