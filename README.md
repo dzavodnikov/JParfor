@@ -13,12 +13,8 @@ Requirements
 
 Documentation
 =============
-[JavaDocs](https://dzavodnikov.github.io/JParFor/)
-
-
-Examples
-========
-[Examples](https://github.com/dzavodnikov/JParFor/tree/examples/)
+ * [JavaDocs](https://dzavodnikov.github.io/JParFor/)
+ * [Examples](https://github.com/dzavodnikov/JParFor/tree/examples/)
 
 
 Use
