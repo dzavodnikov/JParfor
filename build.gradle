@@ -28,10 +28,14 @@ eclipse.classpath {
 
 // See:
 //      https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
+//      https://docs.gradle.org/current/userguide/dependency_management.html
 repositories {
     mavenCentral()
     jcenter()
-    maven { url 'https://jitpack.io/' } // Should be the last.
+    maven {
+        name    'JitPack'
+        url     'https://jitpack.io/' 
+    } // Should be the last.
 }
 dependencies {
     testCompile 'junit:junit:4.12'
