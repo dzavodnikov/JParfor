@@ -36,7 +36,7 @@ Gradle
 	...
     dependencies {
         ...
-        compile 'com.github.dzavodnikov:JParFor:1.1.29'
+        compile 'com.github.dzavodnikov:JParFor:1.+'
         ...
     }
     ...
@@ -58,7 +58,7 @@ Maven
 	        <dependency>
 	            <groupId>com.github.dzavodnikov</groupId>
 	            <artifactId>JParFor</artifactId>
-	            <version>1.1.29</version>
+	            <version>[1.0.0, 2.0.0)</version>
 	        </dependency>
 	        ...
 	    <dependencies>
