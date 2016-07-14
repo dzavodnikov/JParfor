@@ -33,6 +33,6 @@ repositories {
 }
 
 dependencies {
-    compile     'com.github.dzavodnikov:JParFor:1.1.29'
-    testCompile 'junit:junit:4.12'
+    compile     'com.github.dzavodnikov:JParFor:1.+'
+    testCompile 'junit:junit:4.+'
 }
