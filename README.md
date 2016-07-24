@@ -9,3 +9,8 @@ Examples for [JParFor](https://github.com/dzavodnikov/JParFor/) library.
 Requirements
 ============
  * Java 1.8 or newer.
+
+
+License
+=======
+Distributed under Apache License 2.0.
