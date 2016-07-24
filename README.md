@@ -65,3 +65,6 @@ Maven
 	    ...
 	</project>
 
+License
+=======
+Distributed under Apache License 2.0.
