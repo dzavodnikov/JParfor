@@ -45,7 +45,6 @@ dependencies {
 // See:
 //      https://github.com/ajoberstar/gradle-git/wiki/org.ajoberstar.github-pages/
 githubPages {
-    repoUri = 'https://github.com/dzavodnikov/JParFor/'
     pages {
         from javadoc
     }
