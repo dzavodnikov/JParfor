@@ -69,4 +69,8 @@ public class Sum {
 
         return sum;
     }
+
+    public static void main(final String[] asrgs) {
+        System.out.println(Sum.sum());
+    }
 }
