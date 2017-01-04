@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2016 JParFor Team
+ * Copyright (c) 2017 JParFor Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ public class JParFor {
     /**
      * Minimum iterations into one worker.
      */
-    private static int      minIterationsPerWorker = MIN_ITERATIONS_DEFAULT;
+    private static int      minIterationsPerWorker = JParFor.MIN_ITERATIONS_DEFAULT;
 
     /**
      * Minimal sizes of images when create many threads no needed.
@@ -46,18 +46,18 @@ public class JParFor {
     /**
      * Number of workers that will be used.
      */
-    private static int      maxWorkers             = DEFAULT_MAX_THREADS;
+    private static int      maxWorkers             = JParFor.DEFAULT_MAX_THREADS;
 
     /**
      * @return minimum iterations into one worker.
      */
     public static int getMinIterations() {
-        return minIterationsPerWorker;
+        return JParFor.minIterationsPerWorker;
     }
 
     /**
      * Set minimum iterations for processing into one worker.
-     * 
+     *
      * @param minIter
      *            Number of iterations.
      */
@@ -67,19 +67,19 @@ public class JParFor {
                     "Parameter 'minIter' (= " + Integer.toString(minIter) + ") must be more or equals than 1!");
         }
 
-        minIterationsPerWorker = minIter;
+        JParFor.minIterationsPerWorker = minIter;
     }
 
     /**
      * @return minimum workers.
      */
     public static int getMaxWorkers() {
-        return maxWorkers;
+        return JParFor.maxWorkers;
     }
 
     /**
      * Set minimum workers.
-     * 
+     *
      * @param maxWork
      *            Number of workers.
      */
@@ -89,7 +89,7 @@ public class JParFor {
                     "Parameter 'maxWork' (= " + Integer.toString(maxWork) + ") must be more or equals than 1!");
         }
 
-        maxWorkers = maxWork;
+        JParFor.maxWorkers = maxWork;
     }
 
     /**
@@ -115,7 +115,7 @@ public class JParFor {
      * });
      * </pre></code>
      * </p>
-     * 
+     *
      * @param begin
      *            Start index.
      * @param end
@@ -172,7 +172,7 @@ public class JParFor {
             /*
              * Use many threads.
              */
-            final List<Thread> threadList = new LinkedList<Thread>();
+            final List<Thread> threadList = new LinkedList<>();
 
             // Split iterations to all available workers.
             final int bitIterAbs = bitIter * step;// We can have 'step' value more than 1!
@@ -205,7 +205,7 @@ public class JParFor {
             for (final Thread t : threadList) {
                 try {
                     t.join();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -219,7 +219,7 @@ public class JParFor {
      *      runner.exec(i, 0); // Do something...
      * }
      * </pre></code>
-     * 
+     *
      * @param end
      *            End index.
      * @param runner

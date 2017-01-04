@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2016 JParFor Team
+ * Copyright (c) 2017 JParFor Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,7 @@
  */
 package org.jparfor;
 
-import static org.junit.Assert.fail;
-
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -82,7 +81,7 @@ public class JParForTest {
         }
 
         // Check.
-        int answer = sum(begin, end, step);
+        final int answer = sum(begin, end, step);
         if (answer != sumAll) {
             System.out.println("MinIters:  " + minIter);
             System.out.println("Workers:   " + threads);
@@ -100,7 +99,7 @@ public class JParForTest {
                 System.out.println("Thread[" + i + "]: " + sumThread[i]);
             }
 
-            fail("Incorrect values!");
+            Assert.fail("Incorrect values!");
         }
     }
 

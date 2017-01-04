@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2016 JParFor Team
+ * Copyright (c) 2017 JParFor Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ public class PerformanceTest {
     }
 
     private static double testSingleThreaded(final int len, final int numOfIterations) {
-        final double[] arr = init(len);
+        final double[] arr = PerformanceTest.init(len);
 
         // Start.
         final long startTime = System.currentTimeMillis();
@@ -48,19 +48,18 @@ public class PerformanceTest {
         // Calculate.
         for (int iter = 0; iter < numOfIterations; ++iter) {
             for (int i = 0; i < arr.length; ++i) {
-                arr[i] = operation(arr[i]);
+                arr[i] = PerformanceTest.operation(arr[i]);
             }
         }
 
         // Stop.
-        final double averageMilliSeconds = (double) (System.currentTimeMillis() - startTime)
-                / (double) (numOfIterations);
+        final double averageMilliSeconds = (double) (System.currentTimeMillis() - startTime) / (double) numOfIterations;
 
         return averageMilliSeconds;
     }
 
     private static double testMultiThreaded(final int len, final int numOfIterations) {
-        final double[] arr = init(len);
+        final double[] arr = PerformanceTest.init(len);
 
         // Start.
         final long startTime = System.currentTimeMillis();
@@ -71,14 +70,13 @@ public class PerformanceTest {
 
                 @Override
                 public void execute(final int i, final int nThread) {
-                    arr[i] = operation(arr[i]);
+                    arr[i] = PerformanceTest.operation(arr[i]);
                 }
             });
         }
 
         // Stop.
-        final double averageMilliSeconds = (double) (System.currentTimeMillis() - startTime)
-                / (double) (numOfIterations);
+        final double averageMilliSeconds = (double) (System.currentTimeMillis() - startTime) / (double) numOfIterations;
 
         return averageMilliSeconds;
     }
@@ -96,8 +94,10 @@ public class PerformanceTest {
 
         for (final int len : lengths) {
             System.out.println("Array with " + len + " elements by " + numOfIterations + " iterations: ");
-            System.out.println("    Single-thread: " + Double.toString(testSingleThreaded(len, numOfIterations)));
-            System.out.println("    Multi-thread:  " + Double.toString(testMultiThreaded(len, numOfIterations)));
+            System.out.println(
+                    "    Single-thread: " + Double.toString(PerformanceTest.testSingleThreaded(len, numOfIterations)));
+            System.out.println(
+                    "    Multi-thread:  " + Double.toString(PerformanceTest.testMultiThreaded(len, numOfIterations)));
         }
     }
 }
