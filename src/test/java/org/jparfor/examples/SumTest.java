@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2012-2016 Dmitry Zavodnikov
+ * Copyright (c) 2017 Dmitry Zavodnikov
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * This is a simple example of usage JParFor Library.
+ * Tests for {@link Sum#sum()}.
  *
  * @author Dmitry Zavodnikov (d.zavodnikov@gmail.com)
  */
