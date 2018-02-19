@@ -1,57 +1,63 @@
 plugins {
     // See:
-    //      https://github.com/ajoberstar/gradle-git/
-    id 'org.ajoberstar.github-pages' version '1.7.2' // Not support '+' symbol!
+    //      https://github.com/ajoberstar/gradle-git-publish/
+    id "org.ajoberstar.git-publish" version "0.3.2"
 }
 
-apply plugin: 'java'
+apply plugin: "java"
 
 tasks.withType(JavaCompile) {
     // See: 
     //      https://stackoverflow.com/questions/21028438/
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility "1.8"
+    targetCompatibility "1.8"
     // See: 
     //      https://mrhaki.blogspot.ru/2012/06/gradle-goodness-set-java-compiler.html
-    options.encoding = 'UTF-8'
+    options.encoding "UTF-8"
 }
 
 tasks.withType(Javadoc) {
     // See:
     //      http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
-    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption("Xdoclint:none", "-quiet")
 }
 
 test {
-     maxHeapSize = '512m' // To be compatible with Travis-CI infrastructure.
+    // To be compatible with Travis-CI infrastructure.
+    maxHeapSize "512m"
 }
 
 repositories {
     mavenCentral()
     jcenter()
     maven {
-        name    'JitPack'
-        url     'https://jitpack.io/' 
+        name    "JitPack"
+        url     "https://jitpack.io/"
     }
 }
 
 dependencies {
-    testCompile 'junit:junit:4.+'
+    testCompile "junit:junit:4.12"
 }
 
 // See:
-//      https://github.com/ajoberstar/gradle-git/wiki/org.ajoberstar.github-pages/
-githubPages {
-    pages {
-        from javadoc
+//      https://github.com/ajoberstar/gradle-git-publish/
+gitPublish {
+    repoUri "https://github.com/dzavodnikov/JParFor.git"
+    branch  "gh-pages"
+    contents {
+        from "$buildDir/doc/javadocs"
+        from(javadoc) {
+            into "."
+        }
     }
 }
 
-apply plugin: 'eclipse'
+apply plugin: "eclipse"
 
 // See: 
 //      https://stackoverflow.com/questions/10156847/
 eclipse.classpath {
-    downloadSources = true
-    downloadJavadoc = true
+    downloadSources true
+    downloadJavadoc true
 }
