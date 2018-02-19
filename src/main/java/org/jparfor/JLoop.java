@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 JParFor Team
+ * Copyright (c) 2012-2018 JParFor Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,8 +31,8 @@ public interface JLoop {
      * @param i
      *            Current loop iteration.
      * @param nThread
-     *            Number of running thread. <strong>Remember that:
-     *            <code>0 &lt;= nThread &lt; JParFor.getMaxWorkers()</code>!</strong>
+     *            Number of running thread. <strong>Remember that: <code>0 &lt;= nThread &lt;
+     *            JParFor.getMaxWorkers()</code>!</strong>
      */
     public void execute(int i, int nThread);
 }

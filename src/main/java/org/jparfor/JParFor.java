@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 JParFor Team
+ * Copyright (c) 2012-2018 JParFor Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,17 +36,17 @@ public class JParFor {
     /**
      * Minimum iterations into one worker.
      */
-    private static int      minIterationsPerWorker = JParFor.MIN_ITERATIONS_DEFAULT;
+    private static int minIterationsPerWorker = JParFor.MIN_ITERATIONS_DEFAULT;
 
     /**
      * Minimal sizes of images when create many threads no needed.
      */
-    public static final int DEFAULT_MAX_THREADS    = Runtime.getRuntime().availableProcessors();
+    public static final int DEFAULT_MAX_THREADS = Runtime.getRuntime().availableProcessors();
 
     /**
      * Number of workers that will be used.
      */
-    private static int      maxWorkers             = JParFor.DEFAULT_MAX_THREADS;
+    private static int maxWorkers = JParFor.DEFAULT_MAX_THREADS;
 
     /**
      * @return minimum iterations into one worker.
@@ -93,16 +93,17 @@ public class JParFor {
     }
 
     /**
-     * Run single loop into many threads.
-     * <p>
-     * Same as: <code><pre>
+     * Run single loop into many threads. <p> Same as: <code>
+     * 
+     * <pre>
      * for (int i = begin; i < end; i += step) {
-     *      runner.exec(i, 0); // Do something...
+     *     runner.exec(i, 0); // Do something...
      * }
-     * </pre></code>
-     * </p>
-     * <p>
-     * To save results of the threads use following pattern: <code><pre>
+     * </pre>
+     * 
+     * </code> </p> <p> To save results of the threads use following pattern: <code>
+     * 
+     * <pre>
      * final double[] results = new double[JParfor.getMaxWorkers()];
      * JParfor.exec(begin, end, step, new Runner() {
      *      {@literal @}Override
@@ -113,8 +114,9 @@ public class JParFor {
      *          results[nThread] = temp;
      *      }
      * });
-     * </pre></code>
-     * </p>
+     * </pre>
+     * 
+     * </code> </p>
      *
      * @param begin
      *            Start index.
@@ -213,12 +215,15 @@ public class JParFor {
     }
 
     /**
-     * Same {@link JParFor#exec(int, int, int, JLoop)}, but use <code>begin = 0</code> and <code>step = 1</code>:
-     * <code><pre>
+     * Same {@link JParFor#exec(int, int, int, JLoop)}, but use <code>begin = 0</code> and <code>step = 1</code>: <code>
+     * 
+     * <pre>
      * for (int i = 0; i < end; ++i) {
-     *      runner.exec(i, 0); // Do something...
+     *     runner.exec(i, 0); // Do something...
      * }
-     * </pre></code>
+     * </pre>
+     * 
+     * </code>
      *
      * @param end
      *            End index.
